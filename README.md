@@ -2,7 +2,10 @@
 
 # Requirements/Technologies
 -	NodeJS 10+
--   TypeScript
+-   Javascriptt
+-   Typescript
+-   Jest
+-   Express
 
 # Installation
 -  Run `git@github.com:devpilot-official/publicis-api.git`
