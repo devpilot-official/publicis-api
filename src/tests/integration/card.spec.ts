@@ -3,12 +3,6 @@ import request from 'supertest'
 import app from '@/app'
 import { user } from '../data/card.data'
 
-const createUserCard = async () => {
-  const res = await request(app).post('/card/new').send(user).expect(201)
-}
-
-
-
 describe('Credit Card Service Routes', () => {
     let newUser: any
 
@@ -18,7 +12,6 @@ describe('Credit Card Service Routes', () => {
             cardNumber: faker.finance.creditCardNumber(),
             limit: 0
         }
-        // await createUserCard()
     })
 
     describe('Home Route - GET /', () => {
@@ -198,6 +191,22 @@ describe('Credit Card Service Routes', () => {
 
             expect(res.body.code).toEqual(404)
             expect(res.body.message).toEqual("Not found")
+        })
+    })
+
+    describe('User Credit Card Retrive Route - GET /card', () => {
+        const url = '/card'
+
+        it('should return 200 for successful user card retrievals', async () => {
+            const res = await request(app).get(url).expect(200)
+        
+            expect(res.body).toHaveProperty('code')
+            expect(res.body).toHaveProperty('message')
+            expect(res.body).toHaveProperty('data')
+
+            expect(res.body.code).toEqual(200)
+            expect(res.body.message).toEqual("All Cards")
+            expect(res.body.data).not.toBeNull()
         })
     })
 })
