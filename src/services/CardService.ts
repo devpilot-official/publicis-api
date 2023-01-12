@@ -24,8 +24,8 @@ export class CardService {
             this.cards.push({
                 name,
                 cardNumber,
-                balance: '£0',
-                limit: `£${limit}`
+                balance: '0',
+                limit: `${limit}`
             })
             return payload
         } catch (error) {
