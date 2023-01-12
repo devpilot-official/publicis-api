@@ -8,7 +8,7 @@ export const payloaddValidation = async (req: Request, res: Response, next: Next
 
   try {
     if (name === "" || typeof name === 'undefined') messages.push('Name is required!')
-    if (!cardNumber || typeof cardNumber === 'undefined' || typeof cardNumber !== 'number') messages.push('Card Number is required and should be a number!')
+    if (!cardNumber || typeof cardNumber === 'undefined' || typeof Number(cardNumber) !== 'number') messages.push('Card Number is required and should be a number!')
     if (limit === "" || typeof limit === 'undefined') messages.push('Limit is required!')
 
     if (messages.length === 0) {

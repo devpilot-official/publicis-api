@@ -42,6 +42,7 @@ export class CardController {
      */
     CreateCards = async (req: any, res: any, next: any) => {
         try {
+            console.log(req.body)
             res
             .status(httpStatus.CREATED)
             .json({
