@@ -6,8 +6,9 @@ import { payloaddValidation } from '@/middlewares/input-validation';
 
 const router = express.Router()
 
-const { Create } = new CardController();
+const { CreateCards, GetAllCards } = new CardController();
 
-router.post('/new', payloaddValidation, isLuhn, Create);
+router.get('/', GetAllCards);
+router.post('/new', payloaddValidation, isLuhn, CreateCards);
 
 export default router

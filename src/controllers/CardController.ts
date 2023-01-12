@@ -10,6 +10,29 @@ export class CardController {
 
     /**
      * Create Card
+     * @route POST /api/card
+     * @param {any} req
+     * @param {any} res
+     * @param {any} next
+     * @returns {Promise<Object>}
+     * @memberOf CardController
+     */
+    GetAllCards = async (req: any, res: any, next: any) => {
+        try {
+            res
+            .status(httpStatus.OK)
+            .json({
+                code: httpStatus.OK,
+                message: "All Cards",
+                data: await this.cardService.GetAll()
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    /**
+     * Create Card
      * @route POST /api/card/new
      * @param {any} req
      * @param {any} res
@@ -17,7 +40,7 @@ export class CardController {
      * @returns {Promise<Object>}
      * @memberOf CardController
      */
-    Create = async (req: any, res: any, next: any) => {
+    CreateCards = async (req: any, res: any, next: any) => {
         try {
             res
             .status(httpStatus.CREATED)
